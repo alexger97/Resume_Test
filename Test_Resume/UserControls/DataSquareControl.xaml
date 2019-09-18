@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Test_Resume.UserControls.DataSquareControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Test_Resume.UserControls"
+             xmlns:converter="clr-namespace:Test_Resume.UserControls.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="20" 
+             x:Name="uk" Height="30" Width="30"  >
+
+    <UserControl.Resources>
+        <Style TargetType="Canvas">
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding TypeOfVisual, ElementName=uk,UpdateSourceTrigger=PropertyChanged}" Value="nonactive"/>
+                        <Condition Binding="{Binding Place, ElementName=uk,UpdateSourceTrigger=PropertyChanged}" Value="0"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush  Color="#FF101C30"/>
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding TypeOfVisual, ElementName=uk,UpdateSourceTrigger=PropertyChanged}" Value="nonactive"/>
+                        <Condition Binding="{Binding Place, ElementName=uk,UpdateSourceTrigger=PropertyChanged}" Value="1"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush  Color="#FF21314F"/>
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+
+
+                <DataTrigger Binding="{Binding TypeOfVisual, ElementName=uk,UpdateSourceTrigger=PropertyChanged}" Value="activ">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush  Color="#FF526DA6"/>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    
+    <Canvas />
+
+    
+</UserControl>

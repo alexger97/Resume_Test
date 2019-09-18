@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="Test_Resume.UserControls.ElementGraphRigthPartVisual"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Test_Resume.UserControls"
+             xmlns:converter="clr-namespace:Test_Resume.UserControls.Converter"
+             mc:Ignorable="d" 
+             Height="30"
+             d:DesignHeight="450" Width="1225"
+             x:Name="ur">
+    <UserControl.Resources>
+        <converter:TypeOfVisualFromDateConverter x:Key="TypeOfVisualFromDateConverter"></converter:TypeOfVisualFromDateConverter>
+        <Style  x:Key="St1" TargetType="{x:Type local:DataSquareControl}">
+            <Setter  Property="TypeOfVisual"    >
+                <Setter.Value >
+                    <MultiBinding Converter="{StaticResource TypeOfVisualFromDateConverter}"   >
+                        <Binding Path="StartTime"   UpdateSourceTrigger="PropertyChanged" Mode="OneWay"   />
+                        <Binding Path="EndTime"  UpdateSourceTrigger="PropertyChanged" Mode="OneWay"  />
+                        <Binding Path="CurrentYear" UpdateSourceTrigger="PropertyChanged" Mode="OneWay" ElementName="ur"></Binding>
+                        <Binding Path="Name"  RelativeSource="{RelativeSource Self}" Mode="OneWay" UpdateSourceTrigger="PropertyChanged" />
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+            <EventSetter Event="MouseDoubleClick" Handler="DataSquareControl_MouseDoubleClick" />
+            <Setter Property="Margin" Value="2,0.5,2,0.5" />
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel Grid.Column="1" Orientation="Horizontal" Background="White"  Height="27"  >
+        <local:DataSquareControl   x:Name="A_01" Style="{StaticResource St1}" Place="0" />
+        <local:DataSquareControl   x:Name="B_01" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl    x:Name="C_01" Style="{StaticResource St1}" Place="0"/>
+
+        <local:DataSquareControl   x:Name="A_02" Style="{StaticResource St1}" Place="1" />
+        <local:DataSquareControl   x:Name="B_02" Style="{StaticResource St1}" Place="0"/>
+        <local:DataSquareControl    x:Name="C_02" Style="{StaticResource St1}" Place="1"/>
+
+        <local:DataSquareControl   x:Name="A_03" Style="{StaticResource St1}" Place="0" />
+        <local:DataSquareControl   x:Name="B_03" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl    x:Name="C_03" Style="{StaticResource St1}" Place="0"/>
+
+        <local:DataSquareControl   x:Name="A_04" Style="{StaticResource St1}" Place="1" />
+        <local:DataSquareControl   x:Name="B_04" Style="{StaticResource St1}" Place="0"/>
+        <local:DataSquareControl    x:Name="C_04" Style="{StaticResource St1}" Place="1"/>
+
+        <local:DataSquareControl   x:Name="A_05" Style="{StaticResource St1}" Place="0" />
+        <local:DataSquareControl   x:Name="B_05" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl    x:Name="C_05" Style="{StaticResource St1}" Place="0"/>
+
+        <local:DataSquareControl   x:Name="A_06" Style="{StaticResource St1}" Place="1" />
+        <local:DataSquareControl   x:Name="B_06" Style="{StaticResource St1}" Place="0"/>
+        <local:DataSquareControl    x:Name="C_06" Style="{StaticResource St1}" Place="1"/>
+
+        <local:DataSquareControl   x:Name="A_07" Style="{StaticResource St1}" Place="0" />
+        <local:DataSquareControl   x:Name="B_07" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl    x:Name="C_07" Style="{StaticResource St1}" Place="0"/>
+
+        <local:DataSquareControl   x:Name="A_08" Style="{StaticResource St1}" Place="1" />
+        <local:DataSquareControl   x:Name="B_08" Style="{StaticResource St1}" Place="0"/>
+        <local:DataSquareControl    x:Name="C_08" Style="{StaticResource St1}" Place="1"/>
+
+        <local:DataSquareControl   x:Name="A_09" Style="{StaticResource St1}" Place="0" />
+        <local:DataSquareControl   x:Name="B_09" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl    x:Name="C_09" Style="{StaticResource St1}" Place="0"/>
+
+        <local:DataSquareControl   x:Name="A_10" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl   x:Name="B_10" Style="{StaticResource St1}" Place="0"/>
+        <local:DataSquareControl    x:Name="C_10" Style="{StaticResource St1}" Place="1"/>
+
+        <local:DataSquareControl   x:Name="A_11" Style="{StaticResource St1}" Place="0" />
+        <local:DataSquareControl   x:Name="B_11" Style="{StaticResource St1}" Place="1"/>
+        <local:DataSquareControl    x:Name="C_11" Style="{StaticResource St1}" Place="0"/>
+
+        <local:DataSquareControl   x:Name="A_12" Style="{StaticResource St1}" Place="1" />
+        <local:DataSquareControl   x:Name="B_12" Style="{StaticResource St1}" Place="0"/>
+        <local:DataSquareControl    x:Name="C_12" Style="{StaticResource St1}" Place="1"/>
+    </StackPanel>
+</UserControl>

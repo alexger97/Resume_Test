@@ -1,0 +1,80 @@
+﻿<Page x:Class="Test_Resume.AddElementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Test_Resume"
+      xmlns:converter="clr-namespace:Test_Resume.UserControls.Converter"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddElementPage">
+
+    <Page.Resources>
+        <converter:DominateLevelConverter x:Key="DominateLevelConverter"></converter:DominateLevelConverter>
+    </Page.Resources>
+    <Grid Background="#FFECE8F0">
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"></RowDefinition>
+            <RowDefinition Height="17*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition  ></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.ColumnSpan="2">
+                <Button HorizontalAlignment="Left" VerticalAlignment="Center"  Background="Transparent" Command="{Binding BackCommand}">
+                    <Image Source="/Test_Resume;component/Content/back.png"></Image>
+                </Button>
+                <TextBlock Text="Добавление нового этапа"   FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+            </Grid>
+            
+            <TextBlock  Grid.Row="1"  Text="Наименование этапа" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+
+            <Grid  Grid.Row="2" Grid.ColumnSpan="2" Visibility="{Binding DominateLevelForNewItem   , Converter={StaticResource DominateLevelConverter},ConverterParameter=2 }">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock   HorizontalAlignment="Center" VerticalAlignment="Center" Text="Старт этапа" FontSize="25" />
+                <DatePicker  FontSize="25" VerticalAlignment="Center"   Grid.Column="1" SelectedDate="{Binding StartTime,Mode=TwoWay}"></DatePicker>
+            </Grid>
+
+
+            <Grid  Grid.Row="3" Grid.ColumnSpan="2" Visibility="{Binding DominateLevelForNewItem, Converter={StaticResource DominateLevelConverter},ConverterParameter=2 }">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock   HorizontalAlignment="Center" VerticalAlignment="Center" Text="Конец этапа" FontSize="25"/>
+                <DatePicker    VerticalAlignment="Center"  FontSize="25" Grid.Row="3" Grid.Column="1" SelectedDate="{Binding EndTime,Mode=TwoWay}"></DatePicker>
+            </Grid>
+            
+            <TextBlock Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="Уровень этапа" FontSize="25"></TextBlock>
+
+            <TextBox  FontSize="25"  VerticalAlignment="Center"  Grid.Row="1" Grid.Column="1" Text="{Binding  Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Text="{Binding DominateLevelForNewItem, Converter={StaticResource DominateLevelConverter},UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+
+        </Grid>
+        <Grid Grid.RowSpan="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+          
+        </Grid>
+        <Border Grid.Row="1"  CornerRadius="90">
+            <Button  Content="Сохранить"  Background="Green" Command="{Binding AddElementCommand}" BorderThickness="2" Height="40" Width="110"  ></Button>
+        </Border>
+    </Grid>
+</Page>

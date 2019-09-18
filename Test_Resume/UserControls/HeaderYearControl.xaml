@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Test_Resume.UserControls.HeaderYearControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Test_Resume.UserControls"
+             mc:Ignorable="d" 
+             Width="1225"
+             d:DesignHeight="50" d:DesignWidth="1200"
+             x:Name="er"
+             >
+    <UserControl.Resources>
+        <Style TargetType="local:HeaderMonth" x:Key="HmStyle">
+            <Setter Property="Year" Value="{Binding CurrentYear, ElementName=er,UpdateSourceTrigger=PropertyChanged}"> </Setter>
+            <Setter Property="Margin" Value="2,0.5,2,0.5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <local:HeaderMonth Grid.Column="0" Style="{StaticResource HmStyle}" Month="1"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="1" Style="{StaticResource HmStyle}"  Month="2"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="2" Style="{StaticResource HmStyle}"  Month="3"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="3" Style="{StaticResource HmStyle}"  Month="4"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="4" Style="{StaticResource HmStyle}"  Month="5"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="5" Style="{StaticResource HmStyle}"  Month="6"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="6" Style="{StaticResource HmStyle}"  Month="7"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="7" Style="{StaticResource HmStyle}"  Month="8"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="8" Style="{StaticResource HmStyle}"  Month="9"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="9" Style="{StaticResource HmStyle}"  Month="10"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="10" Style="{StaticResource HmStyle}"  Month="11"></local:HeaderMonth>
+        <local:HeaderMonth Grid.Column="11" Style="{StaticResource HmStyle}"  Month="12"></local:HeaderMonth>
+    </Grid>
+</UserControl>
